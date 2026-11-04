@@ -1,0 +1,28 @@
+{
+  "id": "swagger-array-handling-historical-replay",
+  "contractVersion": 1,
+  "provenance": "Adapted historical case, not the original WideSWE environment or a new upstream bug.",
+  "buildWindow": { "start": "2026-11-03T18:31:00Z", "end": "2026-11-07T18:29:00Z" },
+  "repositories": [
+    {
+      "id": "sdk",
+      "directory": "reference-repos/swagger-client",
+      "url": "https://github.com/swagger-api/swagger-client.git",
+      "commit": "5a4f9a335b7fd56a58f00339d6f689fcfa78d700",
+      "version": "3.34.2",
+      "acceptance": "acceptance/sdk.acceptance.js",
+      "acceptanceHash": "586f8977996df94633d521d9fe75914e9a3fc9ab4597cec53aa911ff668e9805",
+      "testDestination": "test/crossrepo-acceptance.js"
+    },
+    {
+      "id": "ui",
+      "directory": "reference-repos/swagger-ui",
+      "url": "https://github.com/swagger-api/swagger-ui.git",
+      "commit": "55dca4c69d4192c8b4616513afdc087f40364048",
+      "version": "5.20.0",
+      "acceptance": "acceptance/ui.acceptance.js",
+      "acceptanceHash": "c68118cfccf843e1034fe3ec4e9a2ff06f98eea1415434681c5074ec09a34ada",
+      "testDestination": "test/unit/crossrepo-acceptance.js"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "scope": "Real Swagger UI Execute interactions in installed Chrome, using the identified ES SDK artifact and loopback echo. Historical adapted case, not a broad browser benchmark.",
+  "variants": ["neither-fixed", "sdk-only", "ui-only", "both-fixed"],
+  "modes": ["invalid-array", "missing-array", "typed-array", "encoded-union", "string-only"],
+  "candidate": {
+    "invalid-array": "Visible array validation error, no loader, no HTTP request",
+    "missing-array": "Required-value validation error, no loader, no HTTP request",
+    "typed-array": "One actual HTTP request with repeated values a and b",
+    "encoded-union": "JSON text entered through the nullable-array textarea remains a string in parameter state; Execute produces actual repeated query values a and b",
+    "string-only": "JSON-looking string remains exactly one string value in actual HTTP"
+  },
+  "additionalNegativeControls": {
+    "neither-fixed.invalid-array": "Invalid supplied value has no visible validation error and causes an actual request or remains loading throughout seven seconds",
+    "neither-fixed.encoded-union": "Original UI reports required input missing despite supplied JSON text; no HTTP request",
+    "ui-only.encoded-union": "Actual request incorrectly carries one JSON-encoded string instead of repeated a and b values"
+  },
+  "sdkOnlyNegativeControls": {
+    "invalid-array": "Loader remains throughout a seven-second observation, no visible validation error and no HTTP request",
+    "encoded-union": "Original UI incorrectly reports required value missing despite supplied JSON text; no HTTP request"
+  },
+  "limits": "Finite seven-second loader observation, not proof of infinite duration. Automated browser gestures are not a genuine human Switch message or approval. Only the declared nullable-array union is covered, not arbitrary JSON Schema unions."
+}

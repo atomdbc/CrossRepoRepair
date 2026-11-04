@@ -1,0 +1,70 @@
+{
+  "recordedAt": "2026-11-04T18:31:37.609Z",
+  "coverage": "Actual loopback HTTP requests through the SDK artifact resolved from the UI dependency path. Not a browser UI or live Switch agent run.",
+  "artifactHash": "4cf3301885df037802b23997fe75045e744004cdc5bacdacc1670f06dd4aeff5",
+  "sdkSourceFingerprint": "3f2ae3287bed0e3ed66ec7605315ec464d7358159fab4c8bb3001b8fa46a6db4",
+  "resolvedPackage": ".cache/sdk-artifacts/4cf3301885df037802b23997fe75045e744004cdc5bacdacc1670f06dd4aeff5/package/package.json",
+  "passed": 3,
+  "failed": 0,
+  "acceptancePassed": true,
+  "baselineReproduced": false,
+  "results": [
+    {
+      "id": "B01 real HTTP encoded union array",
+      "expected": [
+        "a",
+        "b"
+      ],
+      "actual": [
+        "a",
+        "b"
+      ],
+      "passed": true,
+      "request": {
+        "method": "GET",
+        "rawUrl": "/echo?parameters=a&parameters=b",
+        "values": [
+          "a",
+          "b"
+        ]
+      }
+    },
+    {
+      "id": "regression real HTTP typed array",
+      "expected": [
+        "a",
+        "b"
+      ],
+      "actual": [
+        "a",
+        "b"
+      ],
+      "passed": true,
+      "request": {
+        "method": "GET",
+        "rawUrl": "/echo?parameters=a&parameters=b",
+        "values": [
+          "a",
+          "b"
+        ]
+      }
+    },
+    {
+      "id": "B04 real HTTP string-only JSON-looking input",
+      "expected": [
+        "[\"a\",\"b\"]"
+      ],
+      "actual": [
+        "[\"a\",\"b\"]"
+      ],
+      "passed": true,
+      "request": {
+        "method": "GET",
+        "rawUrl": "/echo?parameters=%5B%22a%22%2C%22b%22%5D",
+        "values": [
+          "[\"a\",\"b\"]"
+        ]
+      }
+    }
+  ]
+}

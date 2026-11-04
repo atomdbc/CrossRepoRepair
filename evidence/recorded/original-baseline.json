@@ -1,0 +1,56 @@
+{
+  "runId": "2026-11-03T20-48-09-442Z-2d6e9c1f",
+  "startedAt": "2026-11-03T20:48:09.442Z",
+  "finishedAt": "2026-11-03T20:48:14.667Z",
+  "node": "v22.14.0",
+  "case": "swagger-array-handling-historical-replay",
+  "caseHash": "f0078210fd5e7e5d8139a623d5e8f65e71b7fa42d48105dd9e4e77ff5a01f655",
+  "mode": "baseline",
+  "coverage": "Actual source-level SDK builder and UI validation checks; NOT linked UI artifacts, HTTP capture, browser loader, Switch workflow or isolation proof.",
+  "acceptancePassed": false,
+  "baselineReproduced": true,
+  "expectedBehaviouralFailures": true,
+  "components": [
+    {
+      "id": "sdk",
+      "baseCommit": "5a4f9a335b7fd56a58f00339d6f689fcfa78d700",
+      "head": "5a4f9a335b7fd56a58f00339d6f689fcfa78d700",
+      "sourceFingerprint": "6bc71e9bde716e90d82a4e2aa8b8fc8f324bf5b86dd3e6272f7f1d5d8c5b926b",
+      "sourceUnchangedDuringCheck": true,
+      "acceptanceHash": "586f8977996df94633d521d9fe75914e9a3fc9ab4597cec53aa911ff668e9805",
+      "runnerHash": "e0954c724ea017e848db3fb1055be491622bcba88db4a31eb8f9b3cf7c49233c",
+      "verifierHash": "11a6437fcda66415c559b9aca84442ce591d15d4d3f32a960fb198c2c87203fc",
+      "exitCode": 1,
+      "processError": null,
+      "classification": "behavioural_failure",
+      "tests": 7,
+      "passed": 3,
+      "failed": 4,
+      "failures": [
+        "CrossRepoRepair independent SDK acceptance B01 union decodes an array representation before form/explode serialization",
+        "CrossRepoRepair independent SDK acceptance B02 anyOf decodes an array representation before form/explode serialization",
+        "CrossRepoRepair independent SDK acceptance B02 oneOf decodes an array representation before form/explode serialization",
+        "CrossRepoRepair independent SDK acceptance B02 nested decodes an array representation before form/explode serialization"
+      ]
+    },
+    {
+      "id": "ui",
+      "baseCommit": "55dca4c69d4192c8b4616513afdc087f40364048",
+      "head": "55dca4c69d4192c8b4616513afdc087f40364048",
+      "sourceFingerprint": "6e5c6a7f0a55a070c9075661d904caed7cc1c090b3395af7cf9ae7afb410ef6d",
+      "sourceUnchangedDuringCheck": true,
+      "acceptanceHash": "c68118cfccf843e1034fe3ec4e9a2ff06f98eea1415434681c5074ec09a34ada",
+      "runnerHash": "e0954c724ea017e848db3fb1055be491622bcba88db4a31eb8f9b3cf7c49233c",
+      "verifierHash": "11a6437fcda66415c559b9aca84442ce591d15d4d3f32a960fb198c2c87203fc",
+      "exitCode": 1,
+      "processError": null,
+      "classification": "behavioural_failure",
+      "tests": 5,
+      "passed": 4,
+      "failed": 1,
+      "failures": [
+        "CrossRepoRepair independent UI acceptance B05 rejects a non-array string under an array-only schema"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "roomId": "YOUR_LOCAL_ROOM_ID",
+  "allowedSenders": [],
+  "deniedAgentSenders": [],
+  "activatedAt": "REPLACE_WITH_ENROLLMENT_UTC_TIME",
+  "contractHash": "SHA256_OF_EXPLICITLY_AUTHORISED_CASE_JSON",
+  "browserContractHash": "SHA256_OF_EXPLICITLY_AUTHORISED_BROWSER_CONTRACT",
+  "enrollmentMessageId": "REAL_USER_MESSAGE_CONFIRMED_BY_OPERATOR"
+}

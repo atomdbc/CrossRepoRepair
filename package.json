@@ -1,0 +1,30 @@
+{
+  "name": "cross-repo-repair",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "bootstrap": "node scripts/bootstrap.mjs",
+    "baseline": "node scripts/reproduce.mjs --expect-failure",
+    "verify": "node scripts/reproduce.mjs",
+    "link-sdk": "node scripts/link-sdk.mjs",
+    "http:baseline": "node scripts/check-linked-sdk.mjs --expect-failure",
+    "http:verify": "node scripts/check-linked-sdk.mjs",
+    "switch:register": "node scripts/register-verifier.mjs",
+    "switch:listen": "node scripts/verifier.mjs",
+    "regressions": "node scripts/check-regressions.mjs",
+    "readiness": "node scripts/evaluate-readiness.mjs",
+    "session:register": "node scripts/register-session.mjs",
+    "session:context": "node scripts/session.mjs context",
+    "session:post": "node scripts/session.mjs post",
+    "browser:build": "node scripts/build-browser.mjs",
+    "browser:verify": "node scripts/check-browser.mjs"
+  },
+  "dependencies": {
+    "ws": "8.18.3"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "recordedAt": "2026-11-04T22:19:17Z",
+  "platform": "same macOS/Apple-silicon host, Node 22.14.0 and installed Chrome; fresh exported checkout and locked installs with package cache reuse",
+  "steps": [
+    {
+      "step": "root-dependencies",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.44
+    },
+    {
+      "step": "bootstrap",
+      "command": [
+        "npm",
+        "run",
+        "bootstrap"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 110.88
+    },
+    {
+      "step": "own-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.95
+    },
+    {
+      "step": "original-source",
+      "command": [
+        "npm",
+        "run",
+        "baseline"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 4.66
+    },
+    {
+      "step": "original-artifact",
+      "command": [
+        "npm",
+        "run",
+        "link-sdk"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 2.88
+    },
+    {
+      "step": "original-http",
+      "command": [
+        "npm",
+        "run",
+        "http:baseline"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.5
+    },
+    {
+      "step": "sdk-patch",
+      "command": [
+        "git",
+        "-C",
+        "reference-repos/swagger-client",
+        "apply",
+        "../../patches/swagger-client.patch"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.02
+    },
+    {
+      "step": "ui-patch",
+      "command": [
+        "git",
+        "-C",
+        "reference-repos/swagger-ui",
+        "apply",
+        "../../patches/swagger-ui.patch"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.01
+    },
+    {
+      "step": "repaired-source",
+      "command": [
+        "npm",
+        "run",
+        "verify"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 3.61
+    },
+    {
+      "step": "repaired-artifact",
+      "command": [
+        "npm",
+        "run",
+        "link-sdk"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 2.47
+    },
+    {
+      "step": "repaired-http",
+      "command": [
+        "npm",
+        "run",
+        "http:verify"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.73
+    },
+    {
+      "step": "regressions",
+      "command": [
+        "npm",
+        "run",
+        "regressions"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 3.31
+    },
+    {
+      "step": "browser-build",
+      "command": [
+        "npm",
+        "run",
+        "browser:build"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 26.03
+    },
+    {
+      "step": "browser-check",
+      "command": [
+        "npm",
+        "run",
+        "browser:verify"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 59.58
+    },
+    {
+      "step": "readiness",
+      "command": [
+        "npm",
+        "run",
+        "readiness"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.35
+    }
+  ],
+  "allStepsPassed": true,
+  "freshRunApproved": false,
+  "privatePolicyOrKeysCopied": false,
+  "newBundleId": "a738622f63c0fc28a22c7460f3a323389dc74796118e38fd8c2ba39d6ee51e72",
+  "durationSeconds": 217.43,
+  "limitations": "Not a fresh OS or an independently reprovisioned Switch deployment. Historical approval is not authority for this new run."
+}

@@ -1,0 +1,21 @@
+{
+  "verifiedAt": "2026-11-04T21:33:29.768Z",
+  "receipt": {
+    "version": 1,
+    "roomId": "30eaf6b1-08fd-437c-8690-a416af4c317d",
+    "sender": "@switch-mattermost-93582629-06d9-4d2f-abdc-6ef26d8fe35a-user:localhost",
+    "messageId": "sw_1b3aeaf7c9b7615501074f49c0d294d2",
+    "timestamp": 1793827878450,
+    "bundleId": "30c7427a9bce5bf1d5399f0f536f90d6f2efdd725c14d5aeff16d3e29d24b5b2",
+    "policyHash": "7c70cbe9c576f815e96383bb2ff466eec5a8308c5238ad28b48fb17e54a1800b",
+    "contractHash": "f0078210fd5e7e5d8139a623d5e8f65e71b7fa42d48105dd9e4e77ff5a01f655",
+    "browserContractHash": "3f1ac39fb0b90c57193784ba92be36c97f2d38fb93c2f9ebfbf8c66d802e38b1",
+    "recordedAt": "2026-11-04T21:31:19.209Z",
+    "scope": "Local tested patch bundle only; no merge, deployment, publication or hackathon submission"
+  },
+  "messageId": "sw_1b3aeaf7c9b7615501074f49c0d294d2",
+  "verifierReplyId": "sw_4849a040f7bf4429bc9836fe7a2a38d9",
+  "screenshotHash": "95d3808febe283e8c5ab04201f6c417f9a18a9f8b618cb6d865245242ef14352",
+  "currentlyApproved": true,
+  "approvalScope": "Local tested bundle only; no merge/deployment/publication/submission"
+}

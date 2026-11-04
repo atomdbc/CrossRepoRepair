@@ -1,0 +1,12 @@
+{
+  "recordedAt": "2026-11-04T21:33:29.767Z",
+  "approvedBundle": "30c7427a9bce5bf1d5399f0f536f90d6f2efdd725c14d5aeff16d3e29d24b5b2",
+  "changedBundle": "540640759d2ead7b6138ad8e97c8c6be4edbf56d4edcfc36e3d86e86c057b964",
+  "approvalWhileChanged": false,
+  "readyWhileChanged": false,
+  "exactSourceRestored": true,
+  "originalApprovalCurrentAgain": true,
+  "acceptedReviewCount": 1,
+  "newHumanMessageGenerated": false,
+  "scope": "The receipt certifies exact matching inputs, never the changed bundle; identical restoration matches the original receipt."
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-04T21:16:08.866Z",
+  "requestId": "sw_5a2263a314e4431e94bffc4a02798074",
+  "replyId": "sw_80416f2cf753436b98153920d22c1fcb",
+  "bundleId": "30c7427a9bce5bf1d5399f0f536f90d6f2efdd725c14d5aeff16d3e29d24b5b2",
+  "actor": "coding-assistant agent",
+  "rejected": true,
+  "acceptedReviewCount": 0,
+  "humanApprovalPerformed": false
+}

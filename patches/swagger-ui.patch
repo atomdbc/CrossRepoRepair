@@ -1,0 +1,127 @@
+diff --git a/src/core/utils/index.js b/src/core/utils/index.js
+index d66bbe3..25f640e 100644
+--- a/src/core/utils/index.js
++++ b/src/core/utils/index.js
+@@ -410,7 +410,7 @@ export const validatePattern = (val, rxPattern) => {
+   }
+ }
+ 
+-function validateValueBySchema(value, schema, requiredByParam, bypassRequiredCheck, parameterContentMediaType) {
++function validateValueBySchema(value, schema, requiredByParam, bypassRequiredCheck, parameterContentMediaType, isOAS3 = false) {
+   if(!schema) return []
+   let errors = []
+   let nullable = schema.get("nullable")
+@@ -426,6 +426,22 @@ function validateValueBySchema(value, schema, requiredByParam, bypassRequiredChe
+   let minItems = schema.get("minItems")
+   let pattern = schema.get("pattern")
+ 
++  // Nullable-array textareas supply JSON text. Validate the decoded array locally;
++  // leave wire input and string-only schemas unchanged.
++  if (isOAS3 && Im.List.isList(type) && type.includes("array") &&
++      type.every(member => member === "array" || member === "null")) {
++    nullable = nullable || type.includes("null")
++    type = "array"
++    if (typeof value === "string") {
++      try {
++        const decoded = JSON.parse(value)
++        if (Array.isArray(decoded)) value = decoded
++      } catch {
++        // Malformed text is rejected by array validation below.
++      }
++    }
++  }
++
+   const schemaRequiresValue = requiredByParam || requiredBySchema === true
+   const hasValue = value !== undefined && value !== null
+   const isValidEmpty = !schemaRequiresValue && !hasValue
+@@ -508,7 +524,7 @@ function validateValueBySchema(value, schema, requiredByParam, bypassRequiredChe
+     }
+     if(schema && schema.has("properties")) {
+       schema.get("properties").forEach((val, key) => {
+-        const errs = validateValueBySchema(objectVal[key], val, false, bypassRequiredCheck, parameterContentMediaType)
++        const errs = validateValueBySchema(objectVal[key], val, false, bypassRequiredCheck, parameterContentMediaType, isOAS3)
+         errors.push(...errs
+           .map((error) => ({ propKey: key, error })))
+       })
+@@ -586,11 +602,13 @@ function validateValueBySchema(value, schema, requiredByParam, bypassRequiredChe
+     errors.push(err)
+   } else if (type === "array") {
+     if (!(arrayCheck || arrayListCheck)) {
++      // Missing required values were handled above; a supplied string is not an array.
++      if (isOAS3 && typeof value === "string") errors.push("Value must be an array")
+       return errors
+     }
+     if(value) {
+       value.forEach((item, i) => {
+-        const errs = validateValueBySchema(item, schema.get("items"), false, bypassRequiredCheck, parameterContentMediaType)
++        const errs = validateValueBySchema(item, schema.get("items"), false, bypassRequiredCheck, parameterContentMediaType, isOAS3)
+         errors.push(...errs
+           .map((err) => ({ index: i, error: err })))
+       })
+@@ -614,7 +632,7 @@ export const validateParam = (param, value, { isOAS3 = false, bypassRequiredChec
+     parameterContentMediaType
+   } = getParameterSchema(param, { isOAS3 })
+ 
+-  return validateValueBySchema(value, paramDetails, paramRequired, bypassRequiredCheck, parameterContentMediaType)
++  return validateValueBySchema(value, paramDetails, paramRequired, bypassRequiredCheck, parameterContentMediaType, isOAS3)
+ }
+ 
+ export const parseSearch = () => {
+diff --git a/test/unit/core/utils.js b/test/unit/core/utils.js
+index 18b0482..55eac6c 100644
+--- a/test/unit/core/utils.js
++++ b/test/unit/core/utils.js
+@@ -349,7 +349,7 @@ describe("utils", () => {
+     let value = null
+     let result = null
+ 
+-    const assertValidateParam = (param, value, expectedError) => {
++    const assertValidateParam = (param, value, expectedError, expectedOas3Error = expectedError) => {
+       // Swagger 2.0 version
+       result = validateParam( fromJS(param), fromJS(value))
+       expect( result ).toEqual( expectedError )
+@@ -365,7 +365,7 @@ describe("utils", () => {
+       result = validateParam( fromJS(oas3Param), fromJS(value), {
+         isOAS3: true
+       })
+-      expect( result ).toEqual( expectedError )
++      expect( result ).toEqual( expectedOas3Error )
+     }
+ 
+     const assertValidateOas3Param = (param, value, expectedError) => {
+@@ -376,6 +376,19 @@ describe("utils", () => {
+       expect( result ).toEqual( expectedError )
+     }
+ 
++    it("validates nullable-array JSON editor values without accepting arbitrary strings", () => {
++      const nullableArray = fromJS({ required: true, schema: {
++        type: ["array", "null"], items: { type: "string" }
++      } })
++      const options = { isOAS3: true }
++      expect(validateParam(nullableArray, '["a","b"]', options)).toEqual([])
++      expect(validateParam(nullableArray, ["a", "b"], options)).toEqual([])
++      expect(validateParam(nullableArray, null, options)).toEqual([])
++      expect(validateParam(nullableArray, "not-an-array", options)).toEqual(["Value must be an array"])
++      expect(validateParam(nullableArray, '{"a":1}', options)).toEqual(["Value must be an array"])
++      expect(validateParam(nullableArray, undefined, options)).toEqual(["Required field is not provided"])
++    })
++
+     it("should check the isOAS3 flag when validating parameters", () => {
+       // This should "skip" validation because there is no `schema` property
+       // and we are telling `validateParam` this is an OAS3 spec
+@@ -742,13 +755,13 @@ describe("utils", () => {
+       value = [1]
+       assertValidateParam(param, value, [])
+ 
+-      // valid array, with no 'type' for items, represented as a string
++      // Swagger 2 keeps its legacy encoded representation; OAS3 requires an array value.
+       param = {
+         required: true,
+         type: "array"
+       }
+       value = "[1]"
+-      assertValidateParam(param, value, [])
++      assertValidateParam(param, value, [], ["Value must be an array"])
+ 
+       // valid array, items match type
+       param = {

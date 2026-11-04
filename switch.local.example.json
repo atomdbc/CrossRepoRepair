@@ -1,0 +1,11 @@
+{
+  "baseUrl": "http://127.0.0.1:8000",
+  "consoleVersion": "0.40.1",
+  "serverVersion": "0.31.0",
+  "roomId": "REPLACE_WITH_YOUR_LOCAL_ROOM_ID",
+  "roomName": "CrossRepoRepair",
+  "agentName": "crossrepo-verifier",
+  "mattermostUrl": "http://127.0.0.1:8065/",
+  "protocol": 6,
+  "humanApprovalConfigured": false
+}

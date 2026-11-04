@@ -1,0 +1,70 @@
+diff --git a/src/execute/index.js b/src/execute/index.js
+index 0d58f16..a07a202 100755
+--- a/src/execute/index.js
++++ b/src/execute/index.js
+@@ -20,27 +20,32 @@ import { serialize as serializeCookie } from '../helpers/cookie.js';
+ 
+ const arrayOrEmpty = (ar) => (Array.isArray(ar) ? ar : []);
+ 
+-const findObjectSchema = (schema, { recurse = true, depth = 1 } = {}) => {
++const findSchema = (schema, schemaType, { recurse = true, depth = 1 } = {}) => {
+   if (!isPlainObject(schema)) return undefined;
+ 
+-  // check if the schema is an object type
+-  if (schema.type === 'object' || (Array.isArray(schema.type) && schema.type.includes('object'))) {
++  if (
++    schema.type === schemaType ||
++    (Array.isArray(schema.type) && schema.type.includes(schemaType))
++  ) {
+     return schema;
+   }
+ 
+   if (depth > TRAVERSE_LIMIT) return undefined;
+ 
+   if (recurse) {
+-    // traverse oneOf keyword first
++    // Preserve the existing traversal order and bound for object and array schemas.
+     const oneOfResult = Array.isArray(schema.oneOf)
+-      ? schema.oneOf.find((subschema) => findObjectSchema(subschema, { recurse, depth: depth + 1 }))
++      ? schema.oneOf.find((subschema) =>
++          findSchema(subschema, schemaType, { recurse, depth: depth + 1 })
++        )
+       : undefined;
+ 
+     if (oneOfResult) return oneOfResult;
+ 
+-    // traverse anyOf keyword second
+     const anyOfResult = Array.isArray(schema.anyOf)
+-      ? schema.anyOf.find((subschema) => findObjectSchema(subschema, { recurse, depth: depth + 1 }))
++      ? schema.anyOf.find((subschema) =>
++          findSchema(subschema, schemaType, { recurse, depth: depth + 1 })
++        )
+       : undefined;
+ 
+     if (anyOfResult) return anyOfResult;
+@@ -49,6 +54,9 @@ const findObjectSchema = (schema, { recurse = true, depth = 1 } = {}) => {
+   return undefined;
+ };
+ 
++const findObjectSchema = (schema, options) => findSchema(schema, 'object', options);
++const findArraySchema = (schema, options) => findSchema(schema, 'array', options);
++
+ const parseJsonObject = ({ value, silentFail = false }) => {
+   try {
+     const parsedValue = JSON.parse(value);
+@@ -307,6 +315,15 @@ export function buildRequest(options) {
+         value = parseJsonObject({ value, silentFail: false });
+       } else if (findObjectSchema(parameter.schema, { recurse: true })) {
+         value = parseJsonObject({ value, silentFail: true });
++      } else if (findArraySchema(parameter.schema)) {
++        const requiredArray = parameter.schema.type === 'array';
++        const parsed = parseJsonObject({ value, silentFail: !requiredArray });
++        // A direct array schema must not silently send an invalid scalar.
++        if (requiredArray && !Array.isArray(parsed)) {
++          throw new Error('Expected JSON serialized array');
++        }
++        // Composed schemas may have another valid branch: only coerce actual arrays.
++        if (Array.isArray(parsed)) value = parsed;
+       }
+     }
+ 

@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-04T16:16:18.047Z",
+  "beforeBundle": "144e354dba814562d553660cff2e7105f6bf3ed1c74981ce3bb758445c9e90b4",
+  "editedBundle": "e048c4ac757a5d9224cd4c790c449fce9bbfd22acfda842dfca0fa47cc89503a",
+  "readyWhileEdited": false,
+  "reason": "stale_or_missing_evidence",
+  "staleReplyObservedInSwitch": true,
+  "replyId": "sw_ad7a705b293046c1808f4c5155ca0860",
+  "exactSourceRestored": true,
+  "humanApprovalPerformed": false
+}
