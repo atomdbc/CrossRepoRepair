@@ -1,0 +1,9 @@
+{
+  "recordedAt": "2026-11-05T16:54:02.350Z",
+  "runtimeConnection": "intentionally nonexistent local Unix socket",
+  "exitCode": 1,
+  "blocked": true,
+  "latestEvidenceUnchanged": true,
+  "hostFallbackUsed": false,
+  "previousPointerHash": "9344b2a515b634fe6f0da3cb4e601df264e7f1b6a250de494d68ae4b68ea3a73"
+}

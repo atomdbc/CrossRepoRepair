@@ -10,9 +10,10 @@ Built for **Flip the Switch 2026 — Best Business Workflow**. This repository i
 
 - Real Switch room, coding-session transport and WebSocket verifier—not a mocked chat screen.
 - Both Swagger SDK/UI patches, with the original failing baseline retained.
-- **12 independent source acceptance checks**, **3 actual HTTP cases**, **173 selected upstream tests** and **33 own unit tests** passing in the recorded run.
+- **12 independent source acceptance checks**, **3 actual HTTP cases**, **173 selected upstream tests** and **41 own unit tests** passing in the recorded run.
 - **20 real Chrome matrix outcomes**: neither fixed, SDK-only, UI-only, both fixed. Five outcomes deliberately reproduce broken states; only both-fixed satisfies all five candidate scenarios.
-- A genuine local human approval was accepted for an exact bundle. A real coding-agent approval attempt was denied. Controlled source drift made the human receipt non-current; exact restoration recovered the same receipt.
+- Canonical/selected upstream Jest use pinned **non-root, read-only, no-network containers**, with actual source/dependency/host/environment canaries and no host fallback. Full repair-worker/build/browser isolation is not claimed.
+- A genuine local human approval was accepted on November 4. A real coding-agent approval attempt was denied. Source drift invalidated that receipt; exact restoration recovered it. **The revised November 5 runtime/checker bundle is reviewable but not human-approved**; that earlier receipt is historical only. Execution-profile drift is also rejected.
 
 **Actor attribution:** one existing AI coding session performed the two repository roles sequentially. The verifier is deterministic, not another model. Separate Codex CLI attempts failed and made no edits. There is no claim of independent model-worker success or a measured multi-agent advantage.
 
@@ -29,14 +30,18 @@ Original upstream fixes already exist: [SDK #3826](https://github.com/swagger-ap
 
 ## Reproduce locally
 
-Tested on **macOS/Apple silicon**, Node **22.14.0**, with already-installed **Chrome 156.0.8078.80**. Node 22+, Git, npm and POSIX tools are required. The browser command does not download Chrome; set `CHROME_PATH` for another installed executable. Cross-platform/cross-browser support is not established.
+Tested on **macOS/Apple silicon**, Node **22.14.0**, with already-installed **Chrome 156.0.8078.80**. Node 22+, Git, npm, POSIX tools, local Docker and the explicitly installed **Linux/ARM64 Node 24.10.0** image in `isolation.json` are required. Jest runs in that container; the coordinator/build/browser control remain host processes. Checks never auto-pull an image; x86/Windows support is not established. See `docs/EXECUTION.md`. The browser command does not download Chrome; set `CHROME_PATH` for another installed executable. Cross-platform/cross-browser support is not established.
 
 Allow several minutes for public dependency installation and builds. Bootstrap refuses to continue below 8 GiB free. It disables lifecycle scripts and incidental Cypress downloads, and does not start Switch or models.
 
 ```sh
+# Start your local Docker engine. On a fresh compatible ARM64 host, explicitly install:
+docker pull node@sha256:b8d2197aff9129d16c801a3e3e1b2a873c4946480f5a310f38056df2268c38d9
+
 npm ci --ignore-scripts --no-audit --no-fund
 npm run bootstrap
 npm test
+npm run isolation:probe
 
 # Clean original state: success means the expected bugs were reproduced.
 npm run baseline
@@ -60,7 +65,7 @@ The last command should produce a **new local reviewable bundle, not an approved
 
 Targeted upstream tests are not the complete upstream inventories. One inherited UI assertion was tightened for OAS3 while preserving Swagger 2, and a nullable-array regression was added. Original acceptance file hashes remain pinned in `case.json`.
 
-A fresh exported checkout completed this full sequence on the same Mac on **4 November 2026**: all 15 commands passed, with package-cache reuse, no private keys/policy copied and an unapproved new local bundle. See `evidence/recorded/clean-reproduction.json`. This is not a fresh-OS or independently reprovisioned Switch-installation claim.
+A fresh exported checkout completed this updated sequence on **5 November 2026, 22:09 UTC**: **all 16 steps passed**, including the first-run isolation probe, with npm-cache/existing-image reuse, no private keys/policy copied and an unapproved new local bundle. See `evidence/recorded/clean-reproduction.json`; its input-file hash identifies the tested code/configuration. The earlier 15-step November 4 receipt remains in `clean-reproduction-20261104.json`. This is same-host reproduction, not a fresh OS or independently reprovisioned Switch installation.
 
 ## Run the Switch workflow
 
@@ -77,7 +82,7 @@ npm run session:context
 printf '%s\n' '@crossrepo-verifier check' | npm run session:post
 ```
 
-The actual `check` request drives SDK build/linking, independent source acceptance, HTTP capture, upstream regressions, browser build/matrix and readiness. `status` checks freshness without calling a model. Literal commands never become shell input.
+The actual `check` request drives isolated-runtime canaries, SDK build/linking, independent source acceptance, HTTP capture, upstream regressions, browser build/matrix and readiness. `status` checks freshness without calling a model. Literal commands never become shell input.
 
 For human review, the trusted operator explicitly enrolls an actual confirmed person's **server-origin opaque sender**, room and authorised contract hashes in ignored `.secrets/review-policy.json`, following `review-policy.example.json`. Do not auto-enroll by display name or a message claiming to be human. Missing policy denies review. The enrolled person—not a bot—may send `@crossrepo-verifier approve <full-current-bundle-hash>` after reviewing it. The receipt grants **local bundle review only**, never deployment, publication, spending or submission.
 
@@ -85,7 +90,7 @@ For human review, the trusted operator explicitly enrolls an actual confirmed pe
 
 `evidence/recorded/` contains selected sanitised historical receipts and actual browser screenshots. Its manifest lists original and published digests. These records are **not current runtime inputs**; a fresh run writes its own `evidence/runs/`. Redactions may change JSON bytes, so original embedded digest relationships must not be presented as verification of redacted files.
 
-See `docs/BROWSER.md`, `docs/ACCEPTANCE.md`, `docs/REFERENCE_CASE.md`, `docs/REPRODUCTION.md` and `docs/SECURITY.md`.
+See `docs/BROWSER.md`, `docs/ACCEPTANCE.md`, `docs/REFERENCE_CASE.md`, `docs/REPRODUCTION.md`, `docs/EXECUTION.md` and `docs/SECURITY.md`.
 
 Demo video: being prepared. Do not mistake screenshots or planned recording for a published video.
 
@@ -93,7 +98,7 @@ Demo video: being prepared. Do not mistake screenshots or planned recording for 
 
 - No production/customer data, live customer system or funds.
 - No auto-merge, deployment or hackathon submission actuator.
-- **Complete worker isolation/immutable dependency environments are not implemented.** Current receipts trust the Switch server and local verifier/storage; they do not secure a privileged/compromised host. The historical repair was not retroactively sandboxed.
+- **Jest execution is isolated; complete repair-worker/build/browser isolation and immutable dependency environments are not implemented.** Current receipts trust the Switch server and local verifier/storage; they do not secure a privileged/compromised host. The historical repair was not retroactively sandboxed.
 - Browser coverage is the declared desktop scenarios, not arbitrary schema unions. Seven seconds of observed loading is not proof of infinite duration.
 - No invented customers, saved-hours metrics, broad benchmark improvement or winning odds. Pact/PactFlow and other multi-repo tools already exist; the contribution here is the demonstrated Switch workflow and exact-bundle evidence, not invention of those categories.
 

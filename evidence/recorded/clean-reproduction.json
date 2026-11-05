@@ -1,6 +1,18 @@
 {
-  "recordedAt": "2026-11-04T22:19:17Z",
-  "platform": "same macOS/Apple-silicon host, Node 22.14.0 and installed Chrome; fresh exported checkout and locked installs with package cache reuse",
+  "recordedAt": "2026-11-05T22:09:54Z",
+  "platform": "same macOS/Apple-silicon host, Node 22.14.0 coordinator, pinned Linux/ARM64 Node 24.10.0 Docker Jest and installed Chrome; fresh exported checkout/locked installs with npm cache and existing image reuse",
+  "inputFilesHash": "f4b1c2d442fbd55e67a5d280c26a2c2a71faeb89fc99c580d43c08a03a5f7bb4",
+  "inputFileCount": 49,
+  "isolatedRuntime": {
+    "available": true,
+    "imageId": "sha256:b8d2197aff9129d16c801a3e3e1b2a873c4946480f5a310f38056df2268c38d9",
+    "profileHash": "70d6c9df480c4fd90dd5184832cc481c445f35655976af8779413c7d08acd9cc",
+    "nodeVersion": "v24.10.0",
+    "platform": "linux/arm64",
+    "probePassed": true,
+    "identityHash": "d80ed59ce89ca73296e0ed62f6628679eca5870a1cf318fd75c23fb9da00815a",
+    "scope": "Read-only source/dependency snapshots for canonical and targeted upstream Jest processes. Not complete worker/build/browser isolation."
+  },
   "steps": [
     {
       "step": "root-dependencies",
@@ -12,7 +24,7 @@
         "--no-fund"
       ],
       "exitCode": 0,
-      "durationSeconds": 0.44
+      "durationSeconds": 0.81
     },
     {
       "step": "bootstrap",
@@ -22,7 +34,7 @@
         "bootstrap"
       ],
       "exitCode": 0,
-      "durationSeconds": 110.88
+      "durationSeconds": 92.8
     },
     {
       "step": "own-tests",
@@ -31,7 +43,17 @@
         "test"
       ],
       "exitCode": 0,
-      "durationSeconds": 0.95
+      "durationSeconds": 0.67
+    },
+    {
+      "step": "isolation-probe",
+      "command": [
+        "npm",
+        "run",
+        "isolation:probe"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 2.1
     },
     {
       "step": "original-source",
@@ -41,7 +63,7 @@
         "baseline"
       ],
       "exitCode": 0,
-      "durationSeconds": 4.66
+      "durationSeconds": 13.77
     },
     {
       "step": "original-artifact",
@@ -51,7 +73,7 @@
         "link-sdk"
       ],
       "exitCode": 0,
-      "durationSeconds": 2.88
+      "durationSeconds": 5.18
     },
     {
       "step": "original-http",
@@ -61,7 +83,7 @@
         "http:baseline"
       ],
       "exitCode": 0,
-      "durationSeconds": 1.5
+      "durationSeconds": 1.32
     },
     {
       "step": "sdk-patch",
@@ -73,7 +95,7 @@
         "../../patches/swagger-client.patch"
       ],
       "exitCode": 0,
-      "durationSeconds": 0.02
+      "durationSeconds": 0.01
     },
     {
       "step": "ui-patch",
@@ -95,7 +117,7 @@
         "verify"
       ],
       "exitCode": 0,
-      "durationSeconds": 3.61
+      "durationSeconds": 14.4
     },
     {
       "step": "repaired-artifact",
@@ -105,7 +127,7 @@
         "link-sdk"
       ],
       "exitCode": 0,
-      "durationSeconds": 2.47
+      "durationSeconds": 3.74
     },
     {
       "step": "repaired-http",
@@ -115,7 +137,7 @@
         "http:verify"
       ],
       "exitCode": 0,
-      "durationSeconds": 0.73
+      "durationSeconds": 1.06
     },
     {
       "step": "regressions",
@@ -125,7 +147,7 @@
         "regressions"
       ],
       "exitCode": 0,
-      "durationSeconds": 3.31
+      "durationSeconds": 11.02
     },
     {
       "step": "browser-build",
@@ -135,7 +157,7 @@
         "browser:build"
       ],
       "exitCode": 0,
-      "durationSeconds": 26.03
+      "durationSeconds": 28.47
     },
     {
       "step": "browser-check",
@@ -145,7 +167,7 @@
         "browser:verify"
       ],
       "exitCode": 0,
-      "durationSeconds": 59.58
+      "durationSeconds": 60.47
     },
     {
       "step": "readiness",
@@ -155,13 +177,13 @@
         "readiness"
       ],
       "exitCode": 0,
-      "durationSeconds": 0.35
+      "durationSeconds": 0.61
     }
   ],
   "allStepsPassed": true,
   "freshRunApproved": false,
   "privatePolicyOrKeysCopied": false,
-  "newBundleId": "a738622f63c0fc28a22c7460f3a323389dc74796118e38fd8c2ba39d6ee51e72",
-  "durationSeconds": 217.43,
+  "newBundleId": "292335f7e0336ab5226aa8f5e0b9b92a83fdb50800b7479bf4a5ffa3564774a8",
+  "durationSeconds": 236.47,
   "limitations": "Not a fresh OS or an independently reprovisioned Switch deployment. Historical approval is not authority for this new run."
 }

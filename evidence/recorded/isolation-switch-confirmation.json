@@ -1,0 +1,37 @@
+{
+  "recordedAt": "2026-11-05T17:26:32.523Z",
+  "passed": true,
+  "thread": {
+    "root": {
+      "id": "sw_989934ffa12344ad96f56a34911148fc",
+      "kind": "message",
+      "sender": "@switch-agent-7b06db67:localhost",
+      "sender_name": "coding-assistant",
+      "body": "@crossrepo-verifier check",
+      "timestamp": 1793899426907,
+      "attachments": []
+    },
+    "replies": [
+      {
+        "id": "sw_182d350691a64f948eb328d0635e71cb",
+        "kind": "message",
+        "sender": "@switch-agent-8bca4fcf:localhost",
+        "sender_name": "crossrepo-verifier",
+        "body": "Running the fixed local acceptance pipeline. A model statement or one green repository cannot close the shared task.",
+        "timestamp": 1793899426997,
+        "attachments": []
+      },
+      {
+        "id": "sw_f060ea0bf8df4b2486de9378901aaee7",
+        "kind": "message",
+        "sender": "@switch-agent-8bca4fcf:localhost",
+        "sender_name": "crossrepo-verifier",
+        "body": "Last completed check 2026-11-05T17-23-51-393Z-a8b6590f: sdk: 7 pass / 0 fail (passed); ui: 5 pass / 0 fail (passed). At the recorded evaluation, source and contract matched the checks. Coverage: canonical and targeted upstream Jest checks use read-only, non-root, no-network containers; builds/HTTP/browser control remain trusted-host steps. This recorded repair uses one coding session in two repository roles. Scoped browser checks are mandatory. Review requires the enrolled sender and full current bundle hash; no merge or deployment performed. HTTP: 3 pass / 0 fail. Upstream regressions: pass. Browser: pass (candidate + partial-repair controls). Bundle 27e8c8e931b9c02edd7e0a7222ba05fdee7cdbf4fe85a3e50de2a3f5e249d20b: checks_pass_review_required. Human review: pending.",
+        "timestamp": 1793899532832,
+        "attachments": []
+      }
+    ]
+  },
+  "bundleId": "27e8c8e931b9c02edd7e0a7222ba05fdee7cdbf4fe85a3e50de2a3f5e249d20b",
+  "scope": "Actual agent check and deterministic verifier reply; new exact-bundle human review is pending, not fabricated."
+}

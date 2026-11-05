@@ -99,8 +99,8 @@ function summaryText(summary, readiness = null) {
     `Last completed check ${summary.runId}: ${totals}. ` +
     ((readiness ? readiness.fresh : current)
       ? 'At the recorded evaluation, source and contract matched the checks. '
-      : 'STALE at evaluation: source or contract changed; request a new check. ') +
-    'Coverage: source-level acceptance and separate HTTP capture; this recorded repair uses one coding session in two repository roles. Scoped browser-loader and nullable-array editor checks are part of the readiness gate. ' +
+      : 'STALE at evaluation: source, contract, runtime or required evidence no longer matches; request a new check. ') +
+    'Coverage: canonical and targeted upstream Jest checks use read-only, non-root, no-network containers; builds/HTTP/browser control remain trusted-host steps. This recorded repair uses one coding session in two repository roles. Scoped browser checks are mandatory. ' +
     'Review requires the enrolled sender and full current bundle hash; no merge or deployment performed.'
   );
 }
@@ -110,6 +110,14 @@ async function runStep(script) {
     timeout: 420000,
     maxBuffer: 16 * 1024 * 1024,
     env: { ...process.env, PATH: dirname(process.execPath) + ':' + process.env.PATH },
+  }).catch((error) => {
+    log('step_failed', {
+      script,
+      code: error.code,
+      signal: error.signal,
+      message: String(error.message).split('\n')[0],
+    });
+    throw error;
   });
 }
 async function refreshReadiness() {
@@ -212,11 +220,13 @@ async function handle(data) {
   const pipelineStarted = Date.now();
   let infrastructureError = false;
   try {
+    await runStep('probe-isolation.mjs');
     await runStep('link-sdk.mjs');
   } catch {
     infrastructureError = true;
   }
   if (!infrastructureError) {
+    // Source/Jest steps require the pinned local isolated runtime; no host fallback.
     // These commands intentionally return nonzero on behavioural failures.
     try {
       await runStep('reproduce.mjs');

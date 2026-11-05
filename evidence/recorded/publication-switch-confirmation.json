@@ -1,0 +1,38 @@
+{
+  "recordedAt": "2026-11-05T22:12:04.886Z",
+  "passed": true,
+  "bundleId": "50cfe9e966bf9b9d12745dafd624bef278562b6a80e228a8a0b2feb2871af90d",
+  "approved": false,
+  "thread": {
+    "root": {
+      "id": "sw_234523a65c684ceeb52f973737da5595",
+      "kind": "message",
+      "sender": "@switch-agent-7b06db67:localhost",
+      "sender_name": "coding-assistant",
+      "body": "@crossrepo-verifier check",
+      "timestamp": 1793916357593,
+      "attachments": []
+    },
+    "replies": [
+      {
+        "id": "sw_ef6a60a615ae4a508209a8c7a2c7972b",
+        "kind": "message",
+        "sender": "@switch-agent-8bca4fcf:localhost",
+        "sender_name": "crossrepo-verifier",
+        "body": "Running the fixed local acceptance pipeline. A model statement or one green repository cannot close the shared task.",
+        "timestamp": 1793916357692,
+        "attachments": []
+      },
+      {
+        "id": "sw_e2a2bf98fa994ac18dc4c4f2471aba97",
+        "kind": "message",
+        "sender": "@switch-agent-8bca4fcf:localhost",
+        "sender_name": "crossrepo-verifier",
+        "body": "Last completed check 2026-11-05T22-06-04-907Z-e48ee267: sdk: 7 pass / 0 fail (passed); ui: 5 pass / 0 fail (passed). At the recorded evaluation, source and contract matched the checks. Coverage: canonical and targeted upstream Jest checks use read-only, non-root, no-network containers; builds/HTTP/browser control remain trusted-host steps. This recorded repair uses one coding session in two repository roles. Scoped browser checks are mandatory. Review requires the enrolled sender and full current bundle hash; no merge or deployment performed. HTTP: 3 pass / 0 fail. Upstream regressions: pass. Browser: pass (candidate + partial-repair controls). Bundle 50cfe9e966bf9b9d12745dafd624bef278562b6a80e228a8a0b2feb2871af90d: checks_pass_review_required. Human review: pending.",
+        "timestamp": 1793916478957,
+        "attachments": []
+      }
+    ]
+  },
+  "scope": "Actual complete Switch check after first-run probe-directory fix; old approval is historical only."
+}

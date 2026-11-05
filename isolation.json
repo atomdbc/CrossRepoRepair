@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "image": "node@sha256:b8d2197aff9129d16c801a3e3e1b2a873c4946480f5a310f38056df2268c38d9",
+  "platform": "linux/arm64",
+  "imageNodeVersion": "v24.10.0",
+  "pullPolicy": "never",
+  "memory": "1536m",
+  "cpus": "2",
+  "pidsLimit": 64,
+  "tmpfsBytes": 268435456,
+  "scope": "Read-only source/dependency snapshots for canonical and targeted upstream Jest processes. Not complete worker/build/browser isolation."
+}

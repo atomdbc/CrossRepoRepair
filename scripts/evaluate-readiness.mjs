@@ -6,6 +6,7 @@ import { evaluateReadiness } from '../src/readiness.mjs';
 import { runtimeArtifactMatches } from '../src/artifact-integrity.mjs';
 import { browserEvidence } from '../src/browser-evidence.mjs';
 import { currentApproval } from '../src/review.mjs';
+import { isolationRuntime } from '../src/isolated-runtime.mjs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (name) => JSON.parse(readFileSync(join(root, name)));
 const manifestBytes = readFileSync(join(root, 'case.json')),
@@ -31,7 +32,43 @@ const records = existsSync(join(root, 'evidence/runs/reviews.json'))
   ? read('evidence/runs/reviews.json')
   : [];
 if (!Array.isArray(records)) throw Error('Invalid review ledger');
+let execution;
+try {
+  const runtime = isolationRuntime(root);
+  const probe = existsSync(join(root, 'evidence/runs/isolation-probe.json'))
+    ? read('evidence/runs/isolation-probe.json')
+    : null;
+  execution = {
+    available: true,
+    imageId: runtime.imageId,
+    profileHash: runtime.profileHash,
+    nodeVersion: runtime.nodeVersion,
+    platform: runtime.platform,
+    probePassed:
+      probe?.passed === true &&
+      probe.probeHash === digest(readFileSync(join(root, 'scripts/probe-isolation.mjs'))) &&
+      probe.isolation?.imageId === runtime.imageId &&
+      probe.isolation?.profileHash === runtime.profileHash,
+    identityHash: digest(
+      JSON.stringify({
+        imageId: runtime.imageId,
+        profileHash: runtime.profileHash,
+        nodeVersion: runtime.nodeVersion,
+        platform: runtime.platform,
+      })
+    ),
+    scope: runtime.config.scope,
+  };
+} catch {
+  execution = {
+    available: false,
+    probePassed: false,
+    identityHash: null,
+    reason: 'isolated_runtime_unavailable',
+  };
+}
 const current = {
+  isolationRuntime: execution,
   reviewPolicyHash: policy ? digest(JSON.stringify(policy)) : null,
   runtimeBound,
   browser,
@@ -51,6 +88,10 @@ const current = {
         'src/browser-evidence.mjs',
         'src/review.mjs',
         'scripts/verifier.mjs',
+        'src/isolated-runtime.mjs',
+        'src/test-inventory.mjs',
+        'isolation.json',
+        'scripts/probe-isolation.mjs',
       ].map((p) => readFileSync(join(root, p)))
     )
   ),
@@ -64,8 +105,9 @@ const result = {
     current
   ),
   browser,
+  executionBoundary: execution,
   limitations:
-    'Source, artifact and scoped browser evidence; not a complete immutable environment, general browser compatibility proof or permission to merge/deploy/publish/submit.',
+    'Canonical/regression Jest execution is isolated. Builds, HTTP/browser control and the trusted coordinator remain host processes; not complete worker/environment isolation or permission to merge/deploy/publish/submit.',
 };
 const approval = currentApproval(policy, result, records);
 result.approved = !!approval;

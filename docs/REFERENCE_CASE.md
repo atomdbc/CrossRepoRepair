@@ -34,4 +34,4 @@ Recorded coverage: 12 independent cases, 3 actual HTTP cases, 173 selected upstr
 
 Both upstream base repositories report Apache-2.0. Full texts are retained under `LICENSES/` in the public snapshot (and `reference/licenses/` in the development archive); applicable notices must be preserved. Dependencies are installed, not vendored into this repository.
 
-Executed platform: macOS/Apple silicon, Node 22.14.0 and installed Chrome 156.0.8078.80. Fresh exported-checkout installation and full checks were rehearsed on that same host with package-cache reuse. This is not a fresh-OS or original linux/amd64 benchmark environment. It does not require downloading full benchmark images or Cypress binaries.
+Executed platform: macOS/Apple silicon, Node 22.14.0 coordinator/build tools, pinned Linux/ARM64 Node 24.10.0 for November 5 isolated canonical/regression Jest, and installed Chrome 156.0.8078.80. Fresh exported-checkout installation and full checks were rehearsed on that same host with package-cache reuse. This is not a fresh-OS or original linux/amd64 benchmark environment. It does not require downloading full benchmark images or Cypress binaries.

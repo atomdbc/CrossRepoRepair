@@ -2,7 +2,7 @@
 
 This is a local historical demonstration, not a production isolation or security product.
 
-- The normal verifier trusts the Switch server, its local process/storage, and the code/dependencies it executes. **Complete filesystem isolation for repair workers and untrusted test code is not implemented.** Do not execute arbitrary hostile repositories on a workstation containing sensitive data.
+- The normal verifier trusts the Switch server, its local process/storage, and the code/dependencies it executes. Canonical and targeted upstream Jest now execute in read-only/non-root/no-network containers with actual canary tests. **Complete repair-worker/build/browser containment is still not implemented.** See [EXECUTION.md](EXECUTION.md). Do not execute arbitrary hostile repositories on a workstation containing sensitive data.
 - A normal agent chat/API identity cannot become the configured reviewer by changing a display name or claiming to be human. An actual coding-agent approval attempt was rejected. Reviewer enrollment is an explicit trusted-operator action using a confirmed message's server-origin sender.
 - These controls do not stop a privileged host attacker from altering policy, receipts, code or credentials. Hashes are consistency binding, not an immutable storage boundary.
 - The original repair used one existing coding session with operator tooling. It was not retroactively sandboxed. Failed standalone CLI attempts are not successful independent workers.

@@ -22,7 +22,8 @@
     "session:context": "node scripts/session.mjs context",
     "session:post": "node scripts/session.mjs post",
     "browser:build": "node scripts/build-browser.mjs",
-    "browser:verify": "node scripts/check-browser.mjs"
+    "browser:verify": "node scripts/check-browser.mjs",
+    "isolation:probe": "node scripts/probe-isolation.mjs"
   },
   "dependencies": {
     "ws": "8.18.3"

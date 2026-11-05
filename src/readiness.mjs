@@ -6,7 +6,26 @@ export function evaluateReadiness(summary, network, regressions, current) {
     upstream = regressions?.components || [];
   const complete = (rows) =>
     rows.length === 2 && ids.every((id) => rows.filter((r) => r.id === id).length === 1);
+  const isolated = (rows) =>
+    rows.every(
+      (r) =>
+        r.inventoryComplete === true &&
+        r.isolation?.enforced === true &&
+        r.isolation.imageId === current.isolationRuntime?.imageId &&
+        r.isolation.profileHash === current.isolationRuntime?.profileHash &&
+        r.isolation.network === 'none' &&
+        r.isolation.sourceReadOnly === true &&
+        r.isolation.dependencyMountsReadOnly === true &&
+        r.isolation.hostCredentialsMounted === false &&
+        r.isolation.hostEnvironmentForwarded === false &&
+        Number.isInteger(r.isolation.uid) &&
+        r.isolation.uid > 0
+    );
   const fresh =
+    current.isolationRuntime?.available === true &&
+    current.isolationRuntime.probePassed === true &&
+    isolated(components) &&
+    isolated(upstream) &&
     current.browser?.fresh === true &&
     current.runtimeBound === true &&
     complete(components) &&
@@ -42,7 +61,8 @@ export function evaluateReadiness(summary, network, regressions, current) {
       checkerHash: current.checkerHash,
       browserIdentityHash: current.browser?.identityHash,
       reviewPolicyHash: current.reviewPolicyHash,
-      readinessVersion: 3,
+      isolationIdentity: current.isolationRuntime?.identityHash,
+      readinessVersion: 4,
     })
   );
   return {

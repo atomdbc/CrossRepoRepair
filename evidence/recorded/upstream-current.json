@@ -1,13 +1,33 @@
 {
-  "runId": "regressions-2026-11-04T18-31-37-671Z-25cedb51",
-  "startedAt": "2026-11-04T18:31:37.671Z",
-  "finishedAt": "2026-11-04T18:31:40.528Z",
+  "runId": "regressions-2026-11-05T22-06-20-520Z-2418749b",
+  "startedAt": "2026-11-05T22:06:20.520Z",
+  "finishedAt": "2026-11-05T22:06:33.193Z",
   "allPassed": true,
   "components": [
     {
       "id": "sdk",
       "suite": "test/oas3/execute/style-explode/query.js",
       "sourceFingerprint": "3f2ae3287bed0e3ed66ec7605315ec464d7358159fab4c8bb3001b8fa46a6db4",
+      "isolation": {
+        "version": 1,
+        "enforced": true,
+        "uid": 501,
+        "imageId": "sha256:b8d2197aff9129d16c801a3e3e1b2a873c4946480f5a310f38056df2268c38d9",
+        "imageReference": "node@sha256:b8d2197aff9129d16c801a3e3e1b2a873c4946480f5a310f38056df2268c38d9",
+        "nodeVersion": "v24.10.0",
+        "platform": "linux/arm64",
+        "profileHash": "70d6c9df480c4fd90dd5184832cc481c445f35655976af8779413c7d08acd9cc",
+        "network": "none",
+        "sourceReadOnly": true,
+        "dependencyMountsReadOnly": true,
+        "hostCredentialsMounted": false,
+        "hostEnvironmentForwarded": false,
+        "sourceSnapshotHash": "22753f21c6dd34b89cb46bf13e1a6d6b7d7266e3aa364a11a1a99d60315d2441",
+        "sourceManifestHash": "e26a64e7e704d427830b11681cefd592320713902390b7f35bf70b92ec61cec3",
+        "canonicalHash": null,
+        "scope": "Read-only source/dependency snapshots for canonical and targeted upstream Jest processes. Not complete worker/build/browser isolation."
+      },
+      "inventoryComplete": true,
       "classification": "passed",
       "passed": 36,
       "failed": 0,
@@ -17,11 +37,31 @@
       "id": "ui",
       "suite": "test/unit/core/utils.js",
       "sourceFingerprint": "a02144d8e34dd7ab95b03961dbb104eaa1d41c240813150663038096f0ad907d",
+      "isolation": {
+        "version": 1,
+        "enforced": true,
+        "uid": 501,
+        "imageId": "sha256:b8d2197aff9129d16c801a3e3e1b2a873c4946480f5a310f38056df2268c38d9",
+        "imageReference": "node@sha256:b8d2197aff9129d16c801a3e3e1b2a873c4946480f5a310f38056df2268c38d9",
+        "nodeVersion": "v24.10.0",
+        "platform": "linux/arm64",
+        "profileHash": "70d6c9df480c4fd90dd5184832cc481c445f35655976af8779413c7d08acd9cc",
+        "network": "none",
+        "sourceReadOnly": true,
+        "dependencyMountsReadOnly": true,
+        "hostCredentialsMounted": false,
+        "hostEnvironmentForwarded": false,
+        "sourceSnapshotHash": "9e1a8a83d8d2ff3ce44fab381bc5db00433abd06c025736fdf3ce28b476c356e",
+        "sourceManifestHash": "bd3a0734c02b0013c6ce19201aa31e13086b774d0703a4e487938e400bcfbc95",
+        "canonicalHash": null,
+        "scope": "Read-only source/dependency snapshots for canonical and targeted upstream Jest processes. Not complete worker/build/browser isolation."
+      },
+      "inventoryComplete": true,
       "classification": "passed",
       "passed": 137,
       "failed": 0,
       "tests": 137
     }
   ],
-  "note": "Targeted upstream suites, not complete test inventories. The OAS3 array-string expectation is intentionally stricter while Swagger 2 compatibility is retained."
+  "note": "Targeted upstream suites in non-root read-only/no-network containers, not complete inventories or build/browser isolation. OAS3 expectation strengthened while Swagger 2 retained; nullable-array case added."
 }

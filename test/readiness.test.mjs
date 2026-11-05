@@ -3,6 +3,13 @@ import assert from 'node:assert/strict';
 import { evaluateReadiness } from '../src/readiness.mjs';
 function fixture() {
   const current = {
+    isolationRuntime: {
+      available: true,
+      probePassed: true,
+      imageId: 'image',
+      profileHash: 'profile',
+      identityHash: 'runtime',
+    },
     browser: { fresh: true, allPassed: true, identityHash: 'browser' },
     runtimeBound: true,
     contractHash: 'contract',
@@ -13,6 +20,18 @@ function fixture() {
   };
   const components = ['sdk', 'ui'].map((id) => ({
     id,
+    inventoryComplete: true,
+    isolation: {
+      enforced: true,
+      imageId: 'image',
+      profileHash: 'profile',
+      network: 'none',
+      sourceReadOnly: true,
+      dependencyMountsReadOnly: true,
+      hostCredentialsMounted: false,
+      hostEnvironmentForwarded: false,
+      uid: 501,
+    },
     sourceFingerprint: current.sources[id],
     sourceUnchangedDuringCheck: true,
     runnerHash: 'runner',
@@ -63,6 +82,12 @@ test('upstream regressions, wire failures and stale browser evidence block readi
   assert.equal(evaluate(f).readyForHumanReview, false);
   f = fixture();
   f.current.browser.fresh = false;
+  assert.equal(evaluate(f).readyForHumanReview, false);
+  f = fixture();
+  f.current.isolationRuntime.available = false;
+  assert.equal(evaluate(f).readyForHumanReview, false);
+  f = fixture();
+  f.summary.components[0].isolation.enforced = false;
   assert.equal(evaluate(f).readyForHumanReview, false);
 });
 test('missing/duplicate components fail closed', () => {

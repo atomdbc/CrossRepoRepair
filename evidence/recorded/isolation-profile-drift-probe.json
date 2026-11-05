@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-11-05T17:26:35.056Z",
+  "passed": true,
+  "changedOnly": "isolation.json cpus 2 -> 1; no new execution under altered profile",
+  "originalBundleId": "27e8c8e931b9c02edd7e0a7222ba05fdee7cdbf4fe85a3e50de2a3f5e249d20b",
+  "staleBundleId": "7c99cf497e85f9ed81b0df17feff14f654fe6d90c4204d1098b1114995a22a04",
+  "staleRejected": true,
+  "staleReply": {
+    "root": {
+      "id": "sw_c8c3646b3ea9461eac65359b735d8637",
+      "kind": "message",
+      "sender": "@switch-agent-7b06db67:localhost",
+      "sender_name": "coding-assistant",
+      "body": "@crossrepo-verifier status",
+      "timestamp": 1793899592662,
+      "attachments": []
+    },
+    "replies": [
+      {
+        "id": "sw_18584b75b48c440c8828f67a9c98629e",
+        "kind": "message",
+        "sender": "@switch-agent-8bca4fcf:localhost",
+        "sender_name": "crossrepo-verifier",
+        "body": "Last completed check 2026-11-05T17-23-51-393Z-a8b6590f: sdk: 7 pass / 0 fail (passed); ui: 5 pass / 0 fail (passed). STALE at evaluation: source, contract, runtime or required evidence no longer matches; request a new check. Coverage: canonical and targeted upstream Jest checks use read-only, non-root, no-network containers; builds/HTTP/browser control remain trusted-host steps. This recorded repair uses one coding session in two repository roles. Scoped browser checks are mandatory. Review requires the enrolled sender and full current bundle hash; no merge or deployment performed. Bundle 7c99cf497e85f9ed81b0df17feff14f654fe6d90c4204d1098b1114995a22a04: stale_or_missing_evidence. Human review: pending.",
+        "timestamp": 1793899593553,
+        "attachments": []
+      }
+    ]
+  },
+  "restoredReply": {
+    "root": {
+      "id": "sw_dba02398e01243d9a55d711ded10a822",
+      "kind": "message",
+      "sender": "@switch-agent-7b06db67:localhost",
+      "sender_name": "coding-assistant",
+      "body": "@crossrepo-verifier status",
+      "timestamp": 1793899594097,
+      "attachments": []
+    },
+    "replies": [
+      {
+        "id": "sw_9a60a5c39f914c6eb738aeb3d8261ce8",
+        "kind": "message",
+        "sender": "@switch-agent-8bca4fcf:localhost",
+        "sender_name": "crossrepo-verifier",
+        "body": "Last completed check 2026-11-05T17-23-51-393Z-a8b6590f: sdk: 7 pass / 0 fail (passed); ui: 5 pass / 0 fail (passed). At the recorded evaluation, source and contract matched the checks. Coverage: canonical and targeted upstream Jest checks use read-only, non-root, no-network containers; builds/HTTP/browser control remain trusted-host steps. This recorded repair uses one coding session in two repository roles. Scoped browser checks are mandatory. Review requires the enrolled sender and full current bundle hash; no merge or deployment performed. Bundle 27e8c8e931b9c02edd7e0a7222ba05fdee7cdbf4fe85a3e50de2a3f5e249d20b: checks_pass_review_required. Human review: pending.",
+        "timestamp": 1793899594708,
+        "attachments": []
+      }
+    ]
+  },
+  "originalConfigBytesRestored": true,
+  "restoredBundleId": "27e8c8e931b9c02edd7e0a7222ba05fdee7cdbf4fe85a3e50de2a3f5e249d20b",
+  "reviewReceiptsUnchanged": true,
+  "humanApprovalCurrent": false
+}

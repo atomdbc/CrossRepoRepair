@@ -1,29 +1,57 @@
 import { lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync } from 'node:fs';
 import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { digest } from './verification.mjs';
+
+// Caller must validate archive paths/types first. Pin extraction permissions so
+// the same archive does not acquire different executable bits across shells.
+export function extractArtifact(archive, destination) {
+  const previous = process.umask(0o077);
+  try {
+    execFileSync('tar', ['-xzf', archive, '--no-same-owner', '-C', destination]);
+  } finally {
+    process.umask(previous);
+  }
+}
 
 // Hash shipped package bytes, not the externally linked dependency installation.
 export function fingerprintPackage(directory) {
-  if (!lstatSync(directory).isDirectory()) throw new Error('Artifact root must be a real directory');
+  if (!lstatSync(directory).isDirectory())
+    throw new Error('Artifact root must be a real directory');
   const entries = [];
   function walk(relative = '') {
     for (const name of readdirSync(join(directory, relative)).sort()) {
       if (!relative && name === 'node_modules') continue;
-      const path = relative ? relative + '/' + name : name, absolute = join(directory, path), stat = lstatSync(absolute);
+      const path = relative ? relative + '/' + name : name,
+        absolute = join(directory, path),
+        stat = lstatSync(absolute);
       if (stat.isSymbolicLink()) entries.push([path, 'link', readlinkSync(absolute)]);
-      else if (stat.isDirectory()) { entries.push([path, 'directory']); walk(path); }
-      else if (stat.isFile()) entries.push([path, 'file', stat.mode & 0o111, digest(readFileSync(absolute))]);
+      else if (stat.isDirectory()) {
+        entries.push([path, 'directory']);
+        walk(path);
+      } else if (stat.isFile())
+        entries.push([path, 'file', stat.mode & 0o111, digest(readFileSync(absolute))]);
       else throw new Error('Unsupported artifact entry');
     }
   }
   walk();
   return digest(JSON.stringify(entries));
 }
-export function runtimeArtifactMatches({ installed, packageRoot, dependencies, expectedFingerprint }) {
+export function runtimeArtifactMatches({
+  installed,
+  packageRoot,
+  dependencies,
+  expectedFingerprint,
+}) {
   try {
-    return !!expectedFingerprint && realpathSync(installed) === realpathSync(packageRoot) &&
+    return (
+      !!expectedFingerprint &&
+      realpathSync(installed) === realpathSync(packageRoot) &&
       fingerprintPackage(packageRoot) === expectedFingerprint &&
       lstatSync(join(packageRoot, 'node_modules')).isSymbolicLink() &&
-      realpathSync(join(packageRoot, 'node_modules')) === realpathSync(dependencies);
-  } catch { return false; }
+      realpathSync(join(packageRoot, 'node_modules')) === realpathSync(dependencies)
+    );
+  } catch {
+    return false;
+  }
 }

@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-04T18:31:59.909Z",
-  "recordedAt": "2026-11-04T18:32:59.102Z",
+  "startedAt": "2026-11-05T22:06:56.785Z",
+  "recordedAt": "2026-11-05T22:07:57.929Z",
   "browser": "Chrome/156.0.8078.80",
   "sourceFingerprints": {
     "sdk": "3f2ae3287bed0e3ed66ec7605315ec464d7358159fab4c8bb3001b8fa46a6db4",
@@ -8,14 +8,14 @@
   },
   "artifactHash": "4cf3301885df037802b23997fe75045e744004cdc5bacdacc1670f06dd4aeff5",
   "contractHash": "3f1ac39fb0b90c57193784ba92be36c97f2d38fb93c2f9ebfbf8c66d802e38b1",
-  "buildReportHash": "17b4aaa32ae512e1cbc9228f245f3078bc46e74f860154346bbc48b28c7bd0ab",
+  "buildReportHash": "a78420fee05ab72254a9f9438f52b6aa9dabac7c85438da89cfba94bbb128f10",
   "harnessHash": "14984404be938fe7c8660adcf9d0a2373c631f4bf405343cc939507930182d16",
   "candidatePassed": true,
   "allPassed": true,
   "results": [
     {
       "screenshotPath": "evidence/runs/browser-neither-fixed-invalid-array.png",
-      "screenshotHash": "cf6a93353cf9e3af83c14206da98d1ea7382f80bc1ffc8d23624651791d15d59",
+      "screenshotHash": "bf07ed94869c07785b78cd7b87ab1eb80d36fb0488ffbd5adfb55913e714d7fc",
       "variant": "neither-fixed",
       "mode": "invalid-array",
       "interaction": "Real browser mouse Execute",
@@ -28,7 +28,7 @@
         "fields": []
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=not-an-array' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=not-an-array\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"not-an-array\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:01 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=not-an-array' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=not-an-array\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"not-an-array\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:06:59 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -73,7 +73,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-neither-fixed-typed-array.png",
-      "screenshotHash": "267e7d0c67f0d6ae7c1e366a8b33c304a777869f05d45c9be0f72cc8ad9a497f",
+      "screenshotHash": "33e54d7ab97989890e5e6845fc5f971c217a26a3d9a0100b7430cdaf60bf8725",
       "variant": "neither-fixed",
       "mode": "typed-array",
       "interaction": "Real browser mouse Execute",
@@ -100,7 +100,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\n-\n-\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:11 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\n-\n-\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:09 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -152,7 +152,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-neither-fixed-string-only.png",
-      "screenshotHash": "c6391675b04b6f35b325a4f6be54bc7f84a6dd1991ff32ea612354b3710416bb",
+      "screenshotHash": "263ce0b749b796c8c1d4493b9757f40d1f4407b71efeeb0a41f498bf945f2a82",
       "variant": "neither-fixed",
       "mode": "string-only",
       "interaction": "Real browser mouse Execute",
@@ -171,7 +171,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\nstring\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:16 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\nstring\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:14 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -240,7 +240,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-sdk-only-typed-array.png",
-      "screenshotHash": "267e7d0c67f0d6ae7c1e366a8b33c304a777869f05d45c9be0f72cc8ad9a497f",
+      "screenshotHash": "33e54d7ab97989890e5e6845fc5f971c217a26a3d9a0100b7430cdaf60bf8725",
       "variant": "sdk-only",
       "mode": "typed-array",
       "interaction": "Real browser mouse Execute",
@@ -267,7 +267,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\n-\n-\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:29 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\n-\n-\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:27 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -319,7 +319,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-sdk-only-string-only.png",
-      "screenshotHash": "c6391675b04b6f35b325a4f6be54bc7f84a6dd1991ff32ea612354b3710416bb",
+      "screenshotHash": "263ce0b749b796c8c1d4493b9757f40d1f4407b71efeeb0a41f498bf945f2a82",
       "variant": "sdk-only",
       "mode": "string-only",
       "interaction": "Real browser mouse Execute",
@@ -338,7 +338,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\nstring\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:33 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\nstring\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:31 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -409,7 +409,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-ui-only-typed-array.png",
-      "screenshotHash": "267e7d0c67f0d6ae7c1e366a8b33c304a777869f05d45c9be0f72cc8ad9a497f",
+      "screenshotHash": "33e54d7ab97989890e5e6845fc5f971c217a26a3d9a0100b7430cdaf60bf8725",
       "variant": "ui-only",
       "mode": "typed-array",
       "interaction": "Real browser mouse Execute",
@@ -436,7 +436,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\n-\n-\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:40 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\n-\n-\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:39 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -456,7 +456,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-ui-only-encoded-union.png",
-      "screenshotHash": "2c5311c07dd11a0bfdc7639870ba362027a6aa89f7f2e91fd43c9ca34541f73d",
+      "screenshotHash": "1d7f13cf2650a26bdd5c7187e372563d63e23c47f6d7fc36c83a26bc8bab3c92",
       "variant": "ui-only",
       "mode": "encoded-union",
       "interaction": "Real browser text entry and mouse Execute",
@@ -475,7 +475,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string> | null\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:43 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string> | null\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:41 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -494,7 +494,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-ui-only-string-only.png",
-      "screenshotHash": "c6391675b04b6f35b325a4f6be54bc7f84a6dd1991ff32ea612354b3710416bb",
+      "screenshotHash": "263ce0b749b796c8c1d4493b9757f40d1f4407b71efeeb0a41f498bf945f2a82",
       "variant": "ui-only",
       "mode": "string-only",
       "interaction": "Real browser mouse Execute",
@@ -513,7 +513,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\nstring\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:45 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\nstring\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:43 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -584,7 +584,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-both-fixed-typed-array.png",
-      "screenshotHash": "267e7d0c67f0d6ae7c1e366a8b33c304a777869f05d45c9be0f72cc8ad9a497f",
+      "screenshotHash": "33e54d7ab97989890e5e6845fc5f971c217a26a3d9a0100b7430cdaf60bf8725",
       "variant": "both-fixed",
       "mode": "typed-array",
       "interaction": "Real browser mouse Execute",
@@ -611,7 +611,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\n-\n-\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:52 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string>\n(query)\n\t\n-\n-\nAdd string item\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:51 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -631,7 +631,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-both-fixed-encoded-union.png",
-      "screenshotHash": "ecdce3a7c5732bfe10a5bb25798a17a9d667f91fa5f85c5dc35b88142813ecd5",
+      "screenshotHash": "70f8ae5bad2bd1cc196902649221c50739606d164e7e529b2d23eec416e404bb",
       "variant": "both-fixed",
       "mode": "encoded-union",
       "interaction": "Real browser text entry and mouse Execute",
@@ -650,7 +650,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string> | null\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:54 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\narray<string> | null\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=a&parameters=b' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=a&parameters=b\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"a\",\n    \"b\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:53 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },
@@ -670,7 +670,7 @@
     },
     {
       "screenshotPath": "evidence/runs/browser-both-fixed-string-only.png",
-      "screenshotHash": "c6391675b04b6f35b325a4f6be54bc7f84a6dd1991ff32ea612354b3710416bb",
+      "screenshotHash": "263ce0b749b796c8c1d4493b9757f40d1f4407b71efeeb0a41f498bf945f2a82",
       "variant": "both-fixed",
       "mode": "string-only",
       "interaction": "Real browser mouse Execute",
@@ -689,7 +689,7 @@
         ]
       },
       "after": {
-        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\nstring\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:62369/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Wed,04 Nov 2026 18:32:57 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
+        "body": "CrossRepoRepair browser fixture\n 1.0.0 \nOAS 3.1\ndefault\nGET\n/echo\nParameters\nCancel\nName\tDescription\n\nparameters *\nstring\n(query)\n\t\nExecute\nClear\nResponses\nCurl\ncurl -X 'GET' \\\n  'http://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D' \\\n  -H 'accept: */*'\nRequest URL\nhttp://127.0.0.1:52983/echo?parameters=%5B%22a%22%2C%22b%22%5D\nServer response\nCode\tDetails\n200\t\nResponse body\nDownload\n{\n  \"values\": [\n    \"[\\\"a\\\",\\\"b\\\"]\"\n  ]\n}\nResponse headers\n connection: keep-alive \n content-type: application/json \n date: Thu,05 Nov 2026 22:07:56 GMT \n keep-alive: timeout=5 \n transfer-encoding: chunked \nResponses\nCode\tDescription\tLinks\n200\t\n\nLocal echo\n\n\tNo links",
         "loading": false,
         "errors": []
       },

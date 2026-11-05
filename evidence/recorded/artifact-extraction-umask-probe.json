@@ -1,0 +1,14 @@
+{
+  "recordedAt": "2026-11-05T17:17:51.699Z",
+  "passed": true,
+  "artifactHash": "4cf3301885df037802b23997fe75045e744004cdc5bacdacc1670f06dd4aeff5",
+  "measurements": {
+    "inherited_22": "05d0c8cf8ba34ac0ccc2b42b232eee3cd34d96d349fe6ece198be76422db4f2f",
+    "pinned_from_22": "0c895a5751d402eb3edd4702c82eece93301016eacbbe8f7b0d386489e21b98e",
+    "inherited_77": "0c895a5751d402eb3edd4702c82eece93301016eacbbe8f7b0d386489e21b98e",
+    "pinned_from_77": "0c895a5751d402eb3edd4702c82eece93301016eacbbe8f7b0d386489e21b98e"
+  },
+  "cachedPackagePreserved": true,
+  "byteDriftGuardRetained": true,
+  "scope": "Same archive, different inherited executable permissions; deterministic restrictive extraction, not a relaxed fingerprint."
+}

@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-04T18:31:37.609Z",
+  "recordedAt": "2026-11-05T22:06:20.402Z",
   "coverage": "Actual loopback HTTP requests through the SDK artifact resolved from the UI dependency path. Not a browser UI or live Switch agent run.",
   "artifactHash": "4cf3301885df037802b23997fe75045e744004cdc5bacdacc1670f06dd4aeff5",
   "sdkSourceFingerprint": "3f2ae3287bed0e3ed66ec7605315ec464d7358159fab4c8bb3001b8fa46a6db4",
