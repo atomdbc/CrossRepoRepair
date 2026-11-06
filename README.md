@@ -88,11 +88,15 @@ For human review, the trusted operator explicitly enrolls an actual confirmed pe
 
 ## Evidence and demo
 
+**[Watch/download the narrated demo (about 96 seconds)](https://github.com/atomdbc/CrossRepoRepair/releases/tag/demo-2026-11-06)** · [Direct MP4](https://github.com/atomdbc/CrossRepoRepair/releases/download/demo-2026-11-06/CrossRepoRepair-demo.mp4) · [Script-based captions](https://github.com/atomdbc/CrossRepoRepair/releases/download/demo-2026-11-06/CrossRepoRepair-demo.srt)
+
+The entrant supplied and approved the narration. Actual Switch/browser views were recorded on November 6; the earlier human approval is explicitly historical, and the revised checker was still awaiting review when recorded. Video publication is not deployment or event submission. The public MP4 was downloaded anonymously and byte-verified after upload. No raw voice recording, signed-in profile or private policy is published.
+
 `evidence/recorded/` contains selected sanitised historical receipts and actual browser screenshots. Its manifest lists original and published digests. These records are **not current runtime inputs**; a fresh run writes its own `evidence/runs/`. Redactions may change JSON bytes, so original embedded digest relationships must not be presented as verification of redacted files.
 
 See `docs/BROWSER.md`, `docs/ACCEPTANCE.md`, `docs/REFERENCE_CASE.md`, `docs/REPRODUCTION.md`, `docs/EXECUTION.md` and `docs/SECURITY.md`.
 
-Demo video: being prepared. Do not mistake screenshots or planned recording for a published video.
+The release includes the actual narrated MP4, captions, poster and checksums. Source is runnable locally; no hosted interactive deployment is claimed.
 
 ## Boundaries
 
